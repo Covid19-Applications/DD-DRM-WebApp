@@ -1,0 +1,5 @@
+/* Changing the font-family of all the elements in the project */
+body {
+  font-family: "Baloo Thambi 2", cursive;
+  background-color: black;
+}

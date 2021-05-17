@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather Dashboard</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+        integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4 text-center">Weather Dashboard</h1>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Search Bar and Search history  -->
+            <div class="col-3" id="search-col">Search for a city:
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="search-bar" aria-label="Recipient's username"
+                        aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="search-btn"><i class="fa fa-search"
+                                aria-hidden="true"></i></button>
+                    </div>
+                </div>
+
+                <!-- Search history goes here -->
+                <ul class="list-group mt-3" id="search-history"></ul>
+
+            </div>
+
+            <!-- Weather Details -->
+            <div class="col-9" id="weather-details">
+                <div class="row">
+                    <div class="col mb-2 p-0" id="weather-col"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class='row'>
+                            <div class="col" id="forecast-header"></div>
+                        </div>
+                        <div class="row" id="forecast-row"></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+</body>
+
+</html>

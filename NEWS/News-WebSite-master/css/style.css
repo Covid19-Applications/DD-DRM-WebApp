@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  margin: 0; padding: 0;
+  background-color: #f5f5f5;
+  font-family: Roboto, sans-serif;
+}
+
+#loader {
+    display: block;
+}
+.container {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  animation: cnime 1s linear infinite;
+}
+
+.top {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  z-index: 1;top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  border: medium solid #999;
+  border-width: 50px 50px 50px 50px;
+  border-color: #FF9A4C transparent #FF9A4C transparent;
+  border-radius: 50%;
+  animation: knime 0.8s linear infinite;
+}
+
+
+.left {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  z-index: 1;
+  border: medium solid #999;
+  border-width: 50px 50px 50px 50px;
+  border-color: transparent #FFF64C transparent #FFF64C;
+  border-radius: 50%; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.load {
+  position: absolute;
+  width: 120px; height: 3px;
+  background: #FFECDD; top: 65%;
+  left: 50%; transform: translate(-50%,-60%);
+  overflow: hidden;
+}
+
+.load::after {
+  position: absolute;
+  content: '';
+  width: 40px; height: 3px;
+  background: #FF6F00;
+  animation: anime 2s linear infinite;
+}
+
+@keyframes knime {
+  0% {border-color: #FF9A4C transparent #FF9A4C transparent;}
+  100% {border-color: #864FA6 transparent #864FA6 transparent;}
+}
+
+@keyframes cnime {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(180deg);}
+}
+
+@keyframes anime {
+  0% {left: -20px;}
+  40% {transform: scale(1.6);}
+  100% {left: 140px;}
+}
+
+header {
+  position: fixed; padding: 0; top: 0;
+  width: 100%; height: 100px;
+  background-color: #fff;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  z-index: 1;
+}
+
+#leftSidenav {
+  width: 250px;
+  display: none;
+}
+#anchors { display: block;}
+
+.left-sidenav {
+    height: 99999px;
+    position: fixed;
+    top: 100px;
+    left: -40px;
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding-top: 10px;
+    z-index: 1;
+}
+.left-sidenav ul {  width: 100%; position: relative; }
+
+.left-sidenav ul li {
+  width: 100%; margin: 0;
+  list-style: none;
+  line-height: 20px;
+}
+
+.left-sidenav ul li a {
+  text-decoration: none;
+  color: #777;
+}
+
+.left-sidenav ul li a:hover {color: #000;}
+
+.left-sidenav ul li a i {
+  float: left; margin: 0; padding: 16px 20px;
+}
+
+.left-sidenav ul li a p {
+padding: 15px 0; margin: 0;
+}
+
+ .left-sidenav ul li a p:hover, .left-sidenav ul li a i:hover {
+   background-color: #f9f9f9;
+   color: #000;
+ }
+
+#maintopnews {
+     margin-left: 250px;
+     display: none;
+}
+
+div.sidebutton {
+  width: 20px; height: auto;
+  margin: 20px; padding: 20px 20px;
+  border-radius: 50%; cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 15px;
+    height: 2px;
+    background-color: #777;
+    margin: 2px auto;
+}
+
+div.sidebutton:hover {
+  background-color: #f3f3f3;
+}
+
+#topNews, #toilatest, #hindulatest, #bbctop, #cnntop, #cnbctop, #dailylattop {
+    display: block;
+}
+
+div.topnews, div.timesofindia, div.thehindu,
+div.bbc, div.cnn, div.cnbc, div.dailymail,
+div.buzzfeed {
+  width: 60%;
+  height: auto;
+}
+
+div.topnews h2,  div.timesofindia h2, div.thehindu h2,
+div.bbc h2, div.cnn h2, div.cnbc h2, div.dailymail h2,
+div.buzzfeed  h2 {
+   position: relative; top: 100px; font-weight: 500;
+  line-height: 20px; margin: 20px 0px 0px 0px;
+}
+
+div.timesofindia h2, div.thehindu h2, div.bbc h2,
+div.cnn h2, div.cnbc h2, div.dailymail h2 {
+  padding-top: 20px;
+}
+
+div.topnews ul , div.timesofindia ul, div.thehindu ul,
+div.bbc ul, div.cnn ul, div.cnbc ul, div.dailymail ul,
+div.buzzfeed ul {
+  margin: 0; padding: 0;
+  list-style: none;
+  position: relative;
+  top: 120px;
+}
+
+div.topnews ul li, div.timesofindia ul li,
+div.thehindu ul li, div.bbc ul li, div.cnn ul li, div.cnbc ul li,
+div.dailymail ul li, div.buzzfeed ul li {
+  width: 100%; padding: 20px;
+  height: auto;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  box-sizing: content-box; overflow: hidden;
+}
+
+div.topnews ul li a, div.timesofindia ul li a {
+  text-decoration: none;
+}
+
+div.topnews ul li img, div.timesofindia ul li img,
+div.thehindu ul li img, div.bbc ul li img, div.cnn ul li img, div.cnbc ul li img,
+div.dailymail ul li img, div.buzzfeed ul li img {
+  position: inherit;
+  width: 150px; height: 150px;
+  float: left; margin: 15px 30px 20px 10px; border-radius: 2px;
+}
+
+.coolbox {
+  position: relative;
+  width: 70%; height: 180px;
+  overflow: hidden; word-wrap: break-word;
+  transition: all 0.3s;
+}
+
+.coolbox:hover {
+  height: auto;
+  overflow: none;
+}
+
+.textlist {
+  position: inherit;
+  text-align: left;
+  clear: right;}
+
+.urlink {
+   color: #25AAF1;
+}
+
+a:hover {
+  color: blueviolet;
+}
+
+a:visited {
+  color: #AA5436;
+}
+
+.navbox {
+  position: fixed;
+  width: 20%;
+ height: auto;
+ right: 30px; background: #fff;
+ padding: 20px; border-radius: 4px;
+ margin: 0;
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+ border-bottom: 10px solid #eee;
+}
+
+.toi {
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1310px) {
+  .coolbox{
+    width:65%;
+    word-wrap: break-word;
+  }
+}
+
+@media screen and (max-width: 1155px) {
+  .left-sidenav {
+
+     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  #leftSidenav {
+    width: 0px;
+    background: #fff;
+    display: none;
+  }
+
+  #anchors {
+    display: none;
+  }
+
+  #maintopnews {
+       margin-left: 100px;
+       display: none;
+  }
+
+  .main {margin-left: 50px !important;}
+
+  .coolbox{
+    width:50%;
+    word-wrap: break-word;
+  }
+}
+
+@media screen and (max-width: 688px) {
+  .coolbox{
+
+    word-wrap: break-word;
+  }
+  .textlist {
+    font-size: 14px;
+  }
+  .toi {font-size: 14px;}
+
+  .artimage {
+    width: 100px !important; height: 100px !important;
+    margin-right: 10px !important;
+  }
+  div.topnews, div.timesofindia, div.thehindu,
+  div.bbc, div.cnn, div.cnbc, div.dailymail,
+  div.buzzfeed {
+    width: 58%;
+    height: auto;
+  }
+  .navbox {
+    right: 10px;
+    width: 23%;
+  }
+  #maintopnews {
+       margin-left: 20px !important;
+       display: none;
+  }
+}
+
+@media screen and (max-width: 549px) {
+  .navbox {
+    width: 35%; visibility: hidden;
+    top: 20px !important; left: 40%;
+    transform: translateX(-50%);
+    z-index: 12; box-shadow: none;
+    border: 1px solid #eee;
+  }
+
+  .navbox:before {
+    text-align: center;
+    display: block; visibility: visible;
+    content: 'News channels \25BC';
+    border: 1px solid #eee;
+    font-size: 14px;
+  }
+
+.navbox:hover {
+  visibility: visible;
+}
+
+  div.topnews, div.timesofindia, div.thehindu,
+  div.bbc, div.cnn, div.cnbc, div.dailymail,
+  div.buzzfeed {
+    width: 90%;
+    height: auto;
+  }
+
+  #maintopnews {
+       margin-left: 8px !important;
+       margin-right: 5px !important;
+       display: none;
+  }
+
+  .coolbox{
+    width: 60%;
+    word-wrap: break-word;
+    overflow: hidden;
+    height: 120px;
+  }
+
+  .coolbox:hover {
+    height: 120px;
+   overflow: scroll;
+  }
+
+  .artimage {
+    width: 100px !important; height: 100px !important;
+    margin-right: 10px !important; margin-left: 8px !important;
+  }
+
+  .jumba {
+    font-size: 12px;
+  }
+
+  div.sidebutton {margin-left: 10px !important;}
+
+  div.topnews ul li, div.timesofindia ul li,
+  div.thehindu ul li, div.bbc ul li, div.cnn ul li, div.cnbc ul li,
+  div.dailymail ul li, div.buzzfeed ul li {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .coolbox{
+    width: 50%;
+    word-wrap: break-word;
+  }
+}

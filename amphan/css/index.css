@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'Unica One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Unica One'), local('UnicaOne-Regular'), url(https://fonts.gstatic.com/s/unicaone/v4/Zxq4PdUSc3GE41eti2ZndIX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Unica One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Unica One'), local('UnicaOne-Regular'), url(https://fonts.gstatic.com/s/unicaone/v4/z3VYemEbD7zsQFQLG6g3SpBw1xU1rKptJj_0jans920.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+body {
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/lightpaperfibers.png");
+  background-repeat: repeat;
+  text-align: center;
+  font-family: 'Unica One';
+}
+.title {
+  font-size: 40px;
+}
+.footerText {
+  font-size: 12px;
+}
+.tag {
+  font-size: 12px;
+}
+.outer {
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+.inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: /*whatever width you want*/;
+}
+
+@media only screen and (max-width: 500px) {
+  .inner {
+    width: 300px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  iframe {
+      width: auto;
+  }
+}

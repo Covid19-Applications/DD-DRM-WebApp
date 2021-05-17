@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Top News</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/media.css">
+<link rel="shortcut icon" href="favicon.ico" />
+
+<style>
+.mani {
+  position: inherit;
+   top: 38px;
+   right: 20px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+<script src="https://use.fontawesome.com/cdf13a2394.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+<script src="js/angularCtrl.js"></script>
+
+</head>
+
+
+<body ng-app="newsApp" ng-controller="newsCtrl" onload="loadfun()">
+  <div id="loader">
+  <div class="container">
+  <div class="top"> </div>
+    <div class="left"></div>
+</div>
+<div class="load" id="Load"></div>
+</div>
+
+  <header id="headtopanime">
+     <div class="sidebutton" onclick="opencloseleftNav()">
+       <div class="bar1 change"></div>
+       <div class="bar2 change"></div>
+       <div class="bar3 change"></div>
+     </div>
+    <div class="search bar">
+    </div>
+    <div class="mani">
+      <a href="https://www.manisankar.co.in" class="jumba"> <-- back to resume </a>
+    </div>
+  </header>
+
+<!-- side navigation bar -->
+<div id="leftSidenav" class="left-sidenav">
+  <ul id="anchors">
+    <li>
+      <a href="index.html">
+        <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+        <p>Top News</p>
+      </a>
+    </li>
+    <li>
+      <a href="sidebar/business.html">
+        <i class="fa fa-building-o" aria-hidden="true"></i>
+        <p>Business</p>
+      </a>
+    </li>
+    <li>
+      <a href="sidebar/technology.html">
+        <i class="fa fa-th" aria-hidden="true"></i>
+        <p>Technology</p>
+      </a>
+    </li>
+    <li>
+      <a href="sidebar/entertainment.html">
+        <i class="fa fa-video-camera" aria-hidden="true"></i>
+        <p>Entertainment</p>
+      </a>
+    </li>
+    <li>
+      <a href="sidebar/sports.html">
+        <i class="fa fa-bicycle" aria-hidden="true"></i>
+        <p>Sports</p>
+      </a>
+    </li>
+    <li>
+      <a href="sidebar/science.html">
+        <i class="fa fa-flask" aria-hidden="true"></i>
+        <p>Science</p>
+      </a>
+    </li>
+    <hr \>
+    <li>
+      <p style="font-size: 12px; text-align: center">
+        powered by
+        <a href="https://newsapi.org/" target="_blank" style="text-decoration: underline">News API</a>
+      </p>
+    </li>
+  </ul>
+</div>
+
+
+<!-- Main section -->
+
+   <div id="maintopnews" class="main">
+
+     <div class="timesofindia" id="toitop">
+       <h2>The Times of India <span style="color: blueviolet">top</span></h2>
+       <ul ng-repeat="x in toitinfo">
+         <li>
+             <img src="{{ x.urlToImage }}" alt=" image " class="artimage">
+           <div class = "coolbox">
+           <p class="textlist"><strong>{{ x.title }}</strong></p>
+
+             <p class="textlist">{{ x.description }}</p>
+             <p class="textlist">Source: <strong>{{ toitsou.source }}</strong></p>
+
+           <p class="textlist" style="">Published At: {{ x.publishedAt | date : 'dd/MM/yyyy HH:mm a' }}</p>
+           <a href="{{x.url}}" class="urlink" target="_blank">Read full article --></a>
+         </div>
+         </li>
+       </ul>
+     </div>
+
+    <div class="timesofindia" id="toilatest">
+      <h2>The Times of India <span style="color: blueviolet">latest</span></h2>
+      <ul ng-repeat="x in toilinfo">
+        <li>
+            <img src="{{ x.urlToImage }}" alt=" image " class="artimage" >
+          <div class = "coolbox">
+          <p class="textlist"><strong>{{ x.title }}</strong></p>
+
+            <p class="textlist">{{ x.description }}</p>
+            <p class="textlist">Source: <strong>{{ toilsou.source }}</strong></p>
+
+          <p class="textlist" style="">Published At: {{ x.publishedAt | date : 'dd/MM/yyyy HH:mm a' }}</p>
+          <a href="{{x.url}}" class="urlink" target="_blank">Read full article --></a>
+        </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="thehindu" id="hindutop">
+      <h2>The Hindu <span style="color: blueviolet">top</span></h2>
+      <ul ng-repeat="x in hindutinfo">
+        <li>
+            <img src="{{ x.urlToImage }}" alt=" image " class="artimage">
+          <div class = "coolbox">
+          <p class="textlist"><strong>{{ x.title }}</strong></p>
+
+            <p class="textlist">{{ x.description }}</p>
+            <p class="textlist">Source: <strong>{{ hindutsou.source }}</strong></p>
+
+          <p class="textlist" style="">Published At: {{ x.publishedAt | date : 'dd/MM/yyyy HH:mm a' }}</p>
+          <a href="{{x.url}}" class="urlink" target="_blank">Read full article --></a>
+        </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="thehindu" id="hindulatest">
+      <h2>The Hindu <span style="color: blueviolet">latest</span></h2>
+      <ul ng-repeat="x in hindulinfo">
+        <li>
+            <img src="{{ x.urlToImage }}" alt=" image " class="artimage">
+          <div class = "coolbox">
+          <p class="textlist"><strong>{{ x.title }}</strong></p>
+
+            <p class="textlist">{{ x.description }}</p>
+            <p class="textlist">Source: <strong>{{ hindulsou.source }}</strong></p>
+
+          <p class="textlist" style="">Published At: {{ x.publishedAt | date : 'dd/MM/yyyy HH:mm a' }}</p>
+          <a href="{{x.url}}" class="urlink" target="_blank">Read full article --></a>
+        </div>
+        </li>
+      </ul>
+    </div>
+    <div class="bbc" id="bbclatest">
+      <h2>BBC News</h2>
+      <ul ng-repeat="x in bbclinfo">
+        <li>
+            <img src="{{ x.urlToImage }}" alt=" image " class="artimage">
+          <div class = "coolbox">
+          <p class="textlist"><strong>{{ x.title }}</strong></p>
+
+            <p class="textlist">{{ x.description }}</p>
+            <p class="textlist">Source: <strong>{{ bbclsou.source }}</strong></p>
+
+          <p class="textlist" style="">Published At: {{ x.publishedAt | date : 'dd/MM/yyyy HH:mm a' }}</p>
+          <a href="{{x.url}}" class="urlink" target="_blank">Read full article --></a>
+        </div>
+        </li>
+      </ul>
+    </div>
+    <div class="cnn" id="cnnlatest">
+      <h2>CNN News</h2>
+      <ul ng-repeat="x in cnnlinfo">
+        <li>
+            <img src="{{ x.urlToImage }}" alt=" image " class="artimage">
+          <div class = "coolbox">
+          <p class="textlist"><strong>{{ x.title }}</strong></p>
+
+            <p class="textlist">{{ x.description }}</p>
+            <p class="textlist">Source: <strong>{{ cnnlsou.source }}</strong></p>
+
+          <p class="textlist" style="">Published At: {{ x.publishedAt | date : 'dd/MM/yyyy HH:mm a' }}</p>
+          <a href="{{x.url}}" class="urlink" target="_blank">Read full article --></a>
+        </div>
+        </li>
+      </ul>
+    </div>
+    <div class="cnbc" id="cnbclatest">
+      <h2>CNBC</h2>
+      <ul ng-repeat="x in cnbclinfo">
+        <li>
+            <img src="{{ x.urlToImage }}" alt=" image " class="artimage">
+          <div class = "coolbox">
+          <p class="textlist"><strong>{{ x.title }}</strong></p>
+
+            <p class="textlist">{{ x.description }}</p>
+            <p class="textlist">Source: <strong>{{ cnbclsou.source }}</strong></p>
+
+          <p class="textlist" style="">Published At: {{ x.publishedAt | date : 'dd/MM/yyyy HH:mm a' }}</p>
+          <a href="{{x.url}}" class="urlink" target="_blank">Read full article --></a>
+        </div>
+        </li>
+      </ul>
+    </div>
+    <div class="dailymail" id="dailytop">
+      <h2>Time <span style="color: blueviolet">top</span></h2>
+      <ul ng-repeat="x in dailytinfo">
+        <li>
+            <img src="{{ x.urlToImage }}" alt=" image " class="artimage">
+          <div class = "coolbox">
+          <p class="textlist"><strong>{{ x.title }}</strong></p>
+
+            <p class="textlist">{{ x.description }}</p>
+            <p class="textlist">Source: <strong>{{ dailytsou.source }}</strong></p>
+
+          <p class="textlist" style="">Published At: {{ x.publishedAt | date : 'dd/MM/yyyy HH:mm a' }}</p>
+          <a href="{{x.url}}" class="urlink" target="_blank">Read full article --></a>
+        </div>
+        </li>
+      </ul>
+    </div>
+    <div class="dailymail" id="dailylatest">
+      <h2>Time <span style="color: blueviolet">latest</span></h2>
+      <ul ng-repeat="x in dailylinfo">
+        <li>
+            <img src="{{ x.urlToImage }}" alt=" image " class="artimage">
+          <div class = "coolbox">
+          <p class="textlist"><strong>{{ x.title }}</strong></p>
+
+            <p class="textlist">{{ x.description }}</p>
+            <p class="textlist">Source: <strong>{{ dailylsou.source }}</strong></p>
+
+          <p class="textlist" style="">Published At: {{ x.publishedAt | date : 'dd/MM/yyyy HH:mm a' }}</p>
+          <a href="{{x.url}}" class="urlink" target="_blank">Read full article --></a>
+        </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="navbox" style="top: 180px">
+      <p class="toi">The Times of India
+        <a href="#toitop" style="text-align: right">Top</a>
+        <a href="#toilatest" style="text-align: right">Latest</a>
+      </p>
+      <p class="toi">The Hindu
+        <a href="#hindutop" style="text-align: right">Top</a>
+        <a href="#hindulatest" style="text-align: right">Latest</a>
+      </p>
+      <p class="toi">BBC News
+        <a href="#bbclatest" style="text-align: right">Top</a>
+      </p>
+      <p class="toi">CNN News
+        <a href="#cnnlatest" style="text-align: right">Top</a>
+      </p>
+      <p class="toi">CNBC
+        <a href="#cnbclatest" style="text-align: right">Top</a>
+      </p>
+      <p class="toi">Time
+        <a href="#dailytop" style="text-align: right">Top</a>
+        <a href="#dailylatest" style="text-align: right">latest</a>
+      </p>
+    </div>
+  </div>
+
+
+
+
+</body>
+</html>

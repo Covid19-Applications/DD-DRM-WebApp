@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Technology</title>
+
+<link rel="stylesheet" href="../css/tech.css">
+<link rel="shortcut icon" href="../../img/odi.png" />
+
+<style>
+.mani {
+  position: inherit;
+   top: 38px;
+   right: 20px;
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+<script src="https://use.fontawesome.com/cdf13a2394.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+<script src="../js/tech.js"></script>
+</head>
+<body ng-app="newsApp" ng-controller="newsCtrl" onload="loadfun()">
+  <div id="loader">
+  <div class="container">
+  <div class="top"> </div>
+    <div class="left"></div>
+  </div>
+  <div class="load" id="Load"></div>
+  </div>
+  <header>
+     <div class="sidebutton" onclick="opencloseleftNav()">
+       <div class="bar1"></div>
+       <div class="bar2"></div>
+       <div class="bar3"></div>
+     </div>
+    <div class="search bar">
+    </div>
+        <div class="mani">
+      <a href="../../index.php" class="jumba"> <img src="../../img/newslo.png"> </a>
+    </div>
+  </header>
+
+<!-- side navigation bar -->
+<div id="leftSidenav" class="left-sidenav">
+  <ul id="anchors">
+    <li>
+      <a href="../index.html">
+        <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+        <p>Top News</p>
+      </a>
+    </li>
+    <li>
+      <a href="business.html">
+        <i class="fa fa-building-o" aria-hidden="true"></i>
+        <p>Business</p>
+      </a>
+    </li>
+    <li>
+      <a href="technology.html">
+        <i class="fa fa-th" aria-hidden="true"></i>
+        <p>Technology</p>
+      </a>
+    </li>
+    <li>
+      <a href="entertainment.html">
+        <i class="fa fa-video-camera" aria-hidden="true"></i>
+        <p>Entertainment</p>
+      </a>
+    </li>
+    <li>
+      <a href="sports.html">
+        <i class="fa fa-bicycle" aria-hidden="true"></i>
+        <p>Sports</p>
+      </a>
+    </li>
+    <li>
+      <a href="science.html">
+        <i class="fa fa-flask" aria-hidden="true"></i>
+        <p>Science</p>
+      </a>
+    </li>
+    <hr \>
+
+  </ul>
+</div>
+
+<div class="technology" id="Technology">
+
+  <div class="ars" id="arstop">
+    <h2>Ars Technica <span style="color: blueviolet">top</span></h2>
+    <ul ng-repeat="x in arstinfo">
+      <li>
+          <img src="{{ x.urlToImage }}" alt=" image " class="artimage">
+        <div class = "coolbox">
+        <p class="textlist"><strong>{{ x.title }}</strong></p>
+
+          <p class="textlist">{{ x.description }}</p>
+          <p class="textlist">Source: <strong>{{ arstsou.source }}</strong></p>
+
+        <p class="textlist" style="">Published At: {{ x.publishedAt | date : 'dd/MM/yyyy HH:mm a' }}</p>
+        <a href="{{x.url}}" class="urlink" target="_blank">Read full article --></a>
+      </div>
+      </li>
+    </ul>
+  </div>
+
+
+  <!-- era starts   -->
+
+  <div class="hack" id="hacktop" style="padding-top: 20px; ">
+    <h2>Hackers News <span style="color: blueviolet">top</span></h2>
+    <ul ng-repeat="x in hacktinfo">
+      <li>
+          <img src="{{ x.urlToImage }}" alt=" image " class="artimage">
+        <div class = "coolbox">
+        <p class="textlist"><strong>{{ x.title }}</strong></p>
+
+          <p class="textlist">{{ x.description }}</p>
+          <p class="textlist">Source: <strong>{{ hacktsou.source }}</strong></p>
+
+        <p class="textlist" style="">Published At: {{ x.publishedAt | date : 'dd/MM/yyyy HH:mm a' }}</p>
+        <a href="{{x.url}}" class="urlink" target="_blank">Read full article --></a>
+      </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="techc" id="techctop" style="padding-top: 20px; ">
+    <h2>Techcrunch <span style="color: blueviolet">top</span></h2>
+    <ul ng-repeat="x in techctinfo">
+      <li>
+          <img src="{{ x.urlToImage }}" alt=" image " class="artimage">
+        <div class = "coolbox">
+        <p class="textlist"><strong>{{ x.title }}</strong></p>
+
+          <p class="textlist">{{ x.description }}</p>
+          <p class="textlist">Source: <strong>{{ techctsou.source }}</strong></p>
+
+        <p class="textlist" style="">Published At: {{ x.publishedAt | date : 'dd/MM/yyyy HH:mm a' }}</p>
+        <a href="{{x.url}}" class="urlink" target="_blank">Read full article --></a>
+      </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="techr" id="techrtop" style="padding-top: 20px; ">
+    <h2>Techradar <span style="color: blueviolet">top</span></h2>
+    <ul ng-repeat="x in techrtinfo">
+      <li>
+          <img src="{{ x.urlToImage }}" alt=" image " class="artimage">
+        <div class = "coolbox">
+        <p class="textlist"><strong>{{ x.title }}</strong></p>
+
+          <p class="textlist">{{ x.description }}</p>
+          <p class="textlist">Source: <strong>{{ techrtsou.source }}</strong></p>
+
+        <p class="textlist" style="">Published At: {{ x.publishedAt | date : 'dd/MM/yyyy HH:mm a' }}</p>
+        <a href="{{x.url}}" class="urlink" target="_blank">Read full article --></a>
+      </div>
+      </li>
+    </ul>
+  </div>
+
+
+<!-- ERa Stops -->
+
+
+  <div class="navbox">
+    <p class="toi">Ars Technica
+      <a href="#arstop" style="text-align: right">Top</a>
+
+    </p>
+    <p class="toi">Hacker News
+      <a href="#hacktop" style="text-align: right">Top</a>
+    </p>
+    <p class="toi">Techcrunch
+      <a href="#techctop" style="text-align: right">Top</a>
+    </p>
+    <p class="toi">Techradar
+      <a href="#techrtop" style="text-align: right">Top</a>
+    </p>
+
+
+
+  </div>
+</div>
+
+</body>
+</html>
